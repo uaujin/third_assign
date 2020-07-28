@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block contents %}
+    <br><br> 
+    <hr> 
+    {% for item in diary %}
+        <h2 style="text-align: left;">제목 : {{ item.title}}</h3> 
+        <h4 style="text-align:right;">{{ item.pub_date}}</h6> 
+        <p>{{ item.sum}}....... <a href="{%url 'detail' item.id %}">더보기</a></p> 
+        <hr>
+    {% endfor %}
+    
+{% endblock %}

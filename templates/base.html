@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .wrapper h1{ color:black; line-height:75px; float:left; }
+        .menu {float:left; background-color:#FFFF6C; }
+        .menu li{float:left;}
+        .menu a{line-height: 75px; color:black; padding: 0px 35px; display:block;}
+        .wrapper{height:75px; position:fixed; width:100%; z-index:9999; top:0; left:0;
+                width:1170px; margin:0 auto;}
+        .clearfix{content: ''; display:block; clear:both;}
+    </style>
+</head>
+<body>
+    <div class ="wrapper">
+        <hr>
+        <h1>MY BLOG</h1> 
+        <nav>
+            <ul class = "menu">
+                <li><a href ="{%url 'main' %}">저를 소개합니다</a></li>
+                <li><a href ="{%url 'diary' %}">나의 일기</a></li>
+                <li><a href ="{%url 'write' %}">일기 작성</a></li>
+                <li><a href ="{%url 'index' %}">나의 앨범</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div style="margin-top:80px;">
+    {% block contents %}
+
+    {% endblock %}
+    </div>
+</body>
+</html>

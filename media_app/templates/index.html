@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block contents %}
+<br><br><br>
+
+    <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 style="display:inline">제목 : </h3> <input type="text" name="title"> <br><br>
+        <h3 style="display:inline">내용 : </h3> <input type="file" name="image">
+        &nbsp;<input type="submit" value="Submit" /> <br><br>
+    </form>
+    <hr>
+    <br>
+    {% for item in profile %}
+    <h3 style="display: inline">앨범 제목 : {{item.title}}</h3> <br>
+    <div><a href="{% url 'remove_image' item.id%}" style="float:right">삭제</a><br><br>
+    <img src="{{item.image.url}}" alt=""><br><br>
+    </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block contents %}
+    <br>
+    <hr>
+    <div style="text-align: right;">
+    <a href ="{% url 'rewrite' diary_detail.id %}">수정</a> ㅣ 
+    <a href="{% url 'remove' diary_detail.id%}">삭제</a><br>    
+    </div>
+    <h1 style="display: inline;">제목 : {{diary_detail.title}}</h1> <br><br>
+    <h3 style="text-align-last: right;">{{diary_detail.pub_date}}</h3><br>
+    <br>
+    {{diary_detail.body}} <br><br>
+    <hr><br>
+    {% if diary_detail.id == first.id and count != 1%} 
+        <a href="{% url 'next' diary_detail.id %}">다음 일기</a> 
+    {% elif diary_detail.id == last.id and count != 1%}
+        <a href="{% url 'previous' diary_detail.id %}">이전 일기</a> 
+    {% elif count == 1 %}
+        
+    {% else %}
+        <a href="{% url 'previous' diary_detail.id %}">이전 일기</a> ㅣ <a href="{% url 'next' diary_detail.id %}">다음 일기</a> 
+    {% endif %}
+    ㅣ <a href="{% url 'diary' %}">목록으로</a><br>
+    
+{% endblock %}

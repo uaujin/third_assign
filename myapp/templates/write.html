@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block contents %}
+    <br>
+    <form action ="{% url 'write' %}" method="POST" enctype="multipart/form-data" style="margin-left:5%; ">
+    {% csrf_token %}
+    <h4>제목 : </h4>
+    <input type="text" name="title" value="제목 적으시오!" style="width:60%">
+    <br>
+    <h4>본문 : </h4>
+    <textarea name="body" style="width:60%; height:200px">내용을 적으시오!</textarea>
+    <br>
+    <input type="submit" value="제출하기" style="margin-left:30%">
+    </form>
+{% endblock %}
